@@ -28,15 +28,6 @@ function App() {
             <Login />
           </Route>
 
-          <PrivateRoute path="/dragons" exact>
-            <div>Listing dragons</div>
-          </PrivateRoute>
-          <PrivateRoute path="/dragon/:id" exact>
-            <ShowDragon />
-          </PrivateRoute>
-          <PrivateRoute path="/dragon/:id/edit" exact>
-            <EditDragon />
-          </PrivateRoute>
           <PrivateRoute path="/">
             <DragonsIndex />
           </PrivateRoute>
@@ -47,28 +38,3 @@ function App() {
 }
 
 export default App;
-
-
-function ShowDragon(){
-  let { id } = useParams()
-
-  return (
-    <>
-      <Header />
-      <div>Showing dragon {id}</div>
-    </>
-  )
-}
-
-function EditDragon(){
-  let { id } = useParams()
-
-  return (
-    <>
-      <Header />
-      <div>Editing dragon {id}</div>
-    </>
-  )
-}
-
-
