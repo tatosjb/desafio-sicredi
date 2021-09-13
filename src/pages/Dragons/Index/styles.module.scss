@@ -1,0 +1,76 @@
+:local(.dragonsIndex) {
+  overflow-x:auto;
+
+  table {
+    width: 100%;
+  }
+
+  th:nth-child(1) {
+    width: 50px;
+  }
+
+  th:nth-child(2) {
+    width: 125px;
+  }
+
+  th:nth-child(3) {
+    width: 40%;
+  }
+
+  th:nth-child(4) {
+    width: 40%;
+  }
+
+  th, td {
+    text-align: left;
+    padding: 0;
+    margin: 0;
+  }
+
+  td {
+    cursor: pointer;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: #f1f1f1;
+  }
+
+  tbody td:hover {
+    background-color: azure;
+  }
+}
+
+:local(.rightButton) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:local(.removingFromList) {
+  @keyframes failure_animation {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  animation-name: failure_animation;
+  animation-delay: 0s;
+  animation-duration: 0.4s;
+  animation-fill-mode: forwards
+}
+
+:local(.newDragonButton) {
+  background-color: rgb(97, 13, 13);
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+
+  margin-bottom: 10px;
+}

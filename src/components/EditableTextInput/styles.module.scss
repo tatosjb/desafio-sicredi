@@ -1,0 +1,61 @@
+:local(.edit) {
+  margin: 0;
+
+  border-radius: 3px;
+  form {
+    width: 100%;
+    margin: 0;
+
+    input {
+      border: 0;
+      font-size: 16px;
+      width: 90%;
+      margin-top: -1px;
+      margin-left: -2px;
+    }
+  }
+
+  a {
+    cursor: pointer;
+    height: fit-content;
+  }
+}
+
+:local(.success) {
+  @keyframes success_animation {
+    0% { background-color: inherit; }
+    50% { background-color: rgba(47, 126, 40, 0.3); }
+    to {background-color: inherit;}
+  }
+
+  animation-name: success_animation;
+  animation-delay: 0s;
+  animation-duration: 1.0s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: backwards;
+}
+
+:local(.failure) {
+  @keyframes failure_animation {
+    0% { background-color: inherit; }
+    50% { background-color: rgba(153, 43, 43, 0.3); }
+    to {background-color: inherit;}
+  }
+
+  animation-name: failure_animation;
+  animation-delay: 0s;
+  animation-duration: 1.0s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: backwards;
+}
+
+:local(.showContainer) {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-content: center;
+
+  height: 25px;
+  padding: 1vh 1vw;
+  border-radius: 3px;
+}

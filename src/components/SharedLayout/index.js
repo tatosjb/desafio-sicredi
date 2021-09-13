@@ -5,8 +5,10 @@ export default function SharedLayout({ children }) {
   return (
     <>
       <Header />
-      <div className={styles.container}>
-        {children}
+      <div className={styles.content}>
+        <div className={styles.container}>
+          {children}
+        </div>
       </div>
     </>
   )
