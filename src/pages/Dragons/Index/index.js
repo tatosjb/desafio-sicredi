@@ -56,7 +56,15 @@ export default function DragonsIndex() {
     let body = {}
     body[field] = value
 
-    setDragons(dragons.map(dragon => dragon.id === id ? { ...dragon, ...body } : dragon))
+    const updatedDragons = dragons.map(dragon => dragon.id === id ? { ...dragon, ...body } : dragon)
+
+    setDragons(updatedDragons)
+
+    const dragon = updatedDragons.find(dragon => dragon.id === id )
+
+    if(dragon.name && dragon.name !== '' && dragon.type && dragon.type !== '') {
+      createDragon(dragon)
+    }
 
     return true
   }
@@ -134,12 +142,14 @@ export default function DragonsIndex() {
                     <EditableTextInput
                       value={dragon.name}
                       onUpdate={value => updateField(value, dragon, 'name')}
+                      editMode={!!dragon.created}
                     />
                   </td>
                   <td>
                     <EditableTextInput
                       value={dragon.type}
                       onUpdate={value => updateField(value, dragon, 'type')}
+                      editMode={!!dragon.created}
                     />
                   </td>
                 </tr>

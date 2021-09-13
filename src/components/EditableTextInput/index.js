@@ -4,7 +4,7 @@ import { faPen, faSave } from '@fortawesome/free-solid-svg-icons'
 
 import styles from './styles.module.scss'
 
-function Editable({onUpdate, onCancel, value, ...otherProps}) {
+function Editable({onUpdate, onCancel, value}) {
   const [inputValue, setInputValue] = useState(value)
 
   function onInputChange(e) {
@@ -14,7 +14,7 @@ function Editable({onUpdate, onCancel, value, ...otherProps}) {
   return (
     <div className={`${styles.edit} ${styles.showContainer}`}>
       <form onSubmit={() => onUpdate(inputValue)}>
-        <input length="20" value={inputValue} onChange={onInputChange} {...otherProps} />
+        <input length="20" value={inputValue} onChange={onInputChange} onBlur={() => onUpdate(inputValue)} />
       </form>
 
         <a onClick={() => onUpdate(inputValue)}><FontAwesomeIcon icon={faSave} color="gray"/></a>
@@ -38,8 +38,8 @@ function ReadOnly({ value, onEdit, success, failure }) {
   )
 }
 
-export default function EditableTextInput({ value, onUpdate }) {
-  const [editting, setEditing] = useState(false)
+export default function EditableTextInput({ value, onUpdate, editMode }) {
+  const [editting, setEditing] = useState(editMode)
   const [animateSuccess, setAnimateSuccess] = useState(false)
   const [animateFailure, setAnimateFailure] = useState(false)
 
